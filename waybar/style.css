@@ -1,0 +1,97 @@
+* {
+  border: none;
+  font-family: "FiraCode Nerd Font", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  background: none;
+}
+
+window#waybar {
+  color: #a5adcb;
+}
+.modules-left {
+  border-radius: 0px;
+  background: #000000;
+  opacity: 0.5;
+  	}
+.modules-right {
+  border-radius: 0px;
+  background: #000000;
+  opacity: 0.5;
+  	}
+.modules-center {
+  border-radius: 3px;
+  background: transparent;
+  padding: 3px 0;
+}
+tooltip {
+  color: #a5adcb;
+  background-color: transparent;
+  text-shadow: none;
+}
+
+tooltip * {
+  color: #a5adcb;
+  text-shadow: none;
+}
+.modules-center {
+}
+
+#custom-sep {
+  color: #ffffff;
+  margin: 4px 0;
+}
+#language,
+#memory
+#cpu
+#temperature
+#battery
+#workspaces,
+#custom-clock,
+#pulseaudio,
+#tray {
+}
+#workspaces {
+  border-radius: 4px;
+}
+#workspaces button {
+  color: #000000;
+  background: none;
+  padding: 0;
+}
+#workspaces button:hover {
+  color: #ffffff;
+}
+#workspaces button.focused {
+  color: #ffffff;
+}
+#memory {
+  color: #ffffff;
+}
+
+#cpu {
+  color: #ffffff
+}
+
+#temperature {
+  color: #ffffff
+}
+
+#battery {
+  color: #ffffff;
+}
+
+#custom-clock {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+#pulseaudio {
+  color: #2fd637;
+}
+#pulseaudio.muted {
+  color: #d62f2f;
+}
+#language {
+  color: #ffffff;
+}

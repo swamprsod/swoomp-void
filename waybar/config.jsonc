@@ -1,0 +1,130 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 5,
+
+  "modules-left": [
+    "custom/clock",
+    "custom/sep",
+    "tray"
+  ],
+  "modules-center": [
+    "sway/workspaces"
+  ],
+  "modules-right": [
+    "sway/language",
+    "custom/sep",
+    "temperature",
+    "custom/sep",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "battery",
+    "custom/sep",
+    "pulseaudio"
+  ],
+  "custom/sep": {
+	  "format": "  "
+  },
+    
+  "sway/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "format-icons": {
+      "focused": "   ",
+      "urgent": "   ",
+      "default": "   "
+    }
+  },
+
+  "custom/clock": {
+    "exec": "date +'%d.%b %H:%M'",
+    "interval": 10
+},
+
+  "tray": {
+    "icon-size": 18,
+	"spacing": 10,
+    "show-passive-items": "true"
+  },
+  "sway/language": {
+    "interval": 5,
+    "format": " {}",
+    "format-en": " EN",
+    "format-ru": " RU"
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "interval": 5,
+    "thermal-zone": 1,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+        "", 
+        "", 
+        "", 
+        "", 
+        ""  
+    ],
+    "tooltip": true
+   },
+
+  "memory": {
+	"interval": 50,
+	"format": " {}%"
+   },
+
+   "battery": {
+    "bat": "BAT0",
+    "states": {
+      "full": 100,
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}% ({time}) ",
+    "format-charging": " {icon} {capacity}% ({time}) ",
+    "format-full": " {icon} Full",
+    "format-time": "{H}h{M}m",
+    "interval": 30,
+    "on-click": "gnome-power-statistics",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+},
+
+  "pulseaudio": { 
+    "format": "{icon}{volume}% ",
+    "format-bluetooth": " {icon}{volume}% ",
+    "format-muted": " MUTE ",
+    "format-icons": {
+      "headphones": " ",
+      "handsfree": " ",
+      "headset": "  ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+            " ",
+            " ",
+            "  "
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+  }
+}
