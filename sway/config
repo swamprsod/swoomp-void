@@ -20,6 +20,11 @@ set $term alacritty
 # Your preferred application launcher
 set $menu wmenu-run
 
+### layout
+
+seat * {
+    xcursor_theme "Adwaita" 1
+}
 
 ### Output configuration
 #
@@ -32,19 +37,27 @@ client.focused #91b48e #000000 #000000 #000000 #000000
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
-bindsym $mod+Alt+w exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill 
+bindsym $mod+Alt+w exec pkill swaybg && swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill 
+
+### tiling
+
+exec /usr/bin/python3 /etc/sway/scripts/autotiling.py
 
 ### Fx
 
 #exec /usr/bin/python3 /etc/sway/scripts/trans.py
 blur_noise 0.01
 blur_passes 1
-shadows enable
 blur enable
 
 for_window [all] opacity 0.9
 for_window [all] titlebar_hide
 
+for_window [title="btop"] floating enable
+for_window [title="btop"] resize set 814 664
+
+
+for_window [title="Turntable"] floating enable
 ### titlebar
 
 
