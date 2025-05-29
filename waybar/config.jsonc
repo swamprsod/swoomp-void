@@ -12,12 +12,13 @@
     "sway/workspaces"
   ],
   "modules-right": [
+    "custom/sep",	  
     "sway/language",
     "custom/sep",
     "temperature",
     "custom/sep",
     "cpu",
-    "custom/sep",
+    "custom/sbtop",
     "memory",
     "custom/sep",
     "battery",
@@ -27,7 +28,11 @@
   "custom/sep": {
 	  "format": "  "
   },
-    
+  "custom/sbtop": {
+	  "format": "  ",
+	  "on-click-right": "btop"
+  },
+  
   "sway/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -60,7 +65,8 @@
   "cpu": {
     "interval": 10,
     "format": " {usage}%",
-    "max-length": 10
+    "on-click-right": "alacritty -t 'btop' -e btop",
+    "max-length": 10 
   },
 
   "temperature": {
@@ -80,7 +86,8 @@
 
   "memory": {
 	"interval": 50,
-	"format": " {}%"
+	"format": " {}%",
+	"on-click-right": "alacritty -t 'btop' -e btop",
    },
 
    "battery": {

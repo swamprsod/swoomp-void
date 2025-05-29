@@ -1,23 +1,24 @@
 * {
   border: none;
-  font-family: "FiraCode Nerd Font", monospace;
-  font-size: 14px;
+  font-family: "GohuFont 14 Nerd Font", monospace;
+  font-size: 16px;
   font-weight: 600;
   background: none;
 }
 
 window#waybar {
   color: #a5adcb;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .modules-left {
   border-radius: 0px;
   background: #000000;
-  opacity: 0.5;
+  opacity: 0.7;
   	}
 .modules-right {
   border-radius: 0px;
   background: #000000;
-  opacity: 0.5;
+  opacity: 0.7;
   	}
 .modules-center {
   border-radius: 3px;
@@ -41,6 +42,13 @@ tooltip * {
   color: #ffffff;
   margin: 4px 0;
 }
+#custom-sbtop {
+  color: #ffffff;
+}
+#custom-scrobbler {
+  color: #ffffff;
+}
+
 #language,
 #memory
 #cpu
@@ -55,12 +63,12 @@ tooltip * {
   border-radius: 4px;
 }
 #workspaces button {
-  color: #000000;
+  color: #ffffff;
   background: none;
   padding: 0;
 }
 #workspaces button:hover {
-  color: #ffffff;
+  color: #000000;
 }
 #workspaces button.focused {
   color: #ffffff;
@@ -70,7 +78,7 @@ tooltip * {
 }
 
 #cpu {
-  color: #ffffff
+  color: #ffffff;
 }
 
 #temperature {
