@@ -11,10 +11,7 @@
   "modules-center": [
     "sway/workspaces"
   ],
-  "modules-right": [
-    "custom/sep",	  
-    "sway/language",
-    "custom/sep",
+  "modules-right": [	  
     "temperature",
     "custom/sep",
     "cpu",
@@ -23,14 +20,16 @@
     "custom/sep",
     "battery",
     "custom/sep",
+    "sway/language",
+    "custom/sep",
     "pulseaudio"
   ],
   "custom/sep": {
-	  "format": "  "
+	  "format": ""
   },
   "custom/sbtop": {
-	  "format": "  ",
-	  "on-click-right": "btop"
+	  "format": "",
+	  "on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'"
   },
   
   "sway/workspaces": {
@@ -65,7 +64,7 @@
   "cpu": {
     "interval": 10,
     "format": " {usage}%",
-    "on-click-right": "alacritty -t 'btop' -e btop",
+    "on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'",
     "max-length": 10 
   },
 
@@ -87,7 +86,7 @@
   "memory": {
 	"interval": 50,
 	"format": " {}%",
-	"on-click-right": "alacritty -t 'btop' -e btop",
+	"on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'",
    },
 
    "battery": {
@@ -103,7 +102,6 @@
     "format-full": " {icon} Full",
     "format-time": "{H}h{M}m",
     "interval": 30,
-    "on-click": "gnome-power-statistics",
     "format-icons": [
       " ",
       " ",
@@ -114,8 +112,8 @@
 },
 
   "pulseaudio": { 
-    "format": "{icon}{volume}% ",
-    "format-bluetooth": " {icon}{volume}% ",
+    "format": "{icon}{volume}%",
+    "format-bluetooth": " {icon}{volume}%",
     "format-muted": " MUTE ",
     "format-icons": {
       "headphones": " ",

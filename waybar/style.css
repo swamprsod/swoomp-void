@@ -1,6 +1,6 @@
 * {
   border: none;
-  font-family: "GohuFont 14 Nerd Font", monospace;
+  font-family: "GohuFont uni14 Nerd Font", monospace;
   font-size: 16px;
   font-weight: 600;
   background: none;
@@ -26,24 +26,31 @@ window#waybar {
   padding: 3px 0;
 }
 tooltip {
-  color: #a5adcb;
+  color: #000000;
   background-color: transparent;
-  text-shadow: none;
+  text-shadow: #000000;
 }
 
 tooltip * {
-  color: #a5adcb;
+  background-color: transparent;
+  color: transparent;
   text-shadow: none;
 }
+
+tooltip#memory {
+  color: #000000;
+}
+
 .modules-center {
 }
 
 #custom-sep {
-  color: #ffffff;
-  margin: 4px 0;
+  color: #848484;
+  margin: 4px 5;
 }
 #custom-sbtop {
-  color: #ffffff;
+  color: #848484;
+  margin: 4px 5;
 }
 #custom-scrobbler {
   color: #ffffff;
@@ -75,31 +82,71 @@ tooltip * {
 }
 #memory {
   color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: #ffffff
+
+}
+
+#tray {
+  padding: 5;
 }
 
 #cpu {
   color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: #ffffff
 }
 
 #temperature {
-  color: #ffffff
+  color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px 0;
+  padding: 0;
+  border-bottom-color: #ffffff
 }
 
 #battery {
   color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: #ffffff
 }
 
 #custom-clock {
   font-weight: 600;
   color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: rgba(255, 255, 255, 0.5)
 }
 
 #pulseaudio {
-  color: #2fd637;
+  color: #2fd636;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: rgba(255, 255, 255, 0.5)
 }
 #pulseaudio.muted {
   color: #d62f2f;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: rgba(255, 255, 255, 0.5)
+
 }
 #language {
   color: #ffffff;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+  margin: 2px;
+  border-bottom-color: rgba(255, 255, 255, 0.4)
+
 }
