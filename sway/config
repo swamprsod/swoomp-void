@@ -9,7 +9,8 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 set $menu wmenu-run
-
+set $browser waterfox
+set $file_manager qtfm
 
 ### layout
 
@@ -21,7 +22,9 @@ smart_borders off
 smart_corner_radius off
 default_border pixel 2
 client.focused #000000 #000000 #000000 #000000 #000000
-client.unfocused #000000 #000000 #000000 #000000 #000000
+#client.unfocused #000000 #000000 #000000 #000000 #000000
+#client.focused_inactive #000000 #000000 #000000
+
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
@@ -37,17 +40,26 @@ exec /usr/bin/python3 /etc/sway/scripts/trans.py
 blur_noise 0.01
 blur_passes 1
 blur enable
-
+default_dim_inactive 0.2
+#blur_xray enable
+font "GohuFont 14 Nerd Font Mono 11"
 
 #for_window [all] opacity 0.9
 #for_window [all] titlebar_hide
 
-for_window [title="btop"] floating enable
-for_window [title="btop"] resize set 814 664
+for_window [title="btop"] {
+  floating enable; 
+  resize set 814 672
+}
 for_window [title="vlc"] floating enable
-### videozapis
+for_window [class="discord"] opacity 0.9
+for_window [app_id="io.github.kotatogram"] opacity 0.9
+for_window [title="Color Picker"] floating enable
+for_window [title="Volume Control"] floating enable
+for_window [app_id="org.polymc.PolyMC"] floating enable
+### clipbord
 
-
+bindsym --to-code Ctrl+Shift+C exec wl-copy
 
 ### klaviatura
 
@@ -59,12 +71,18 @@ input * {
 
 ### qtfm
 
-bindsym $mod+Shift+Tab exec qtfm
+bindsym $mod+Shift+Tab exec "GTK_THEME=Adwaita:dark GDK_BACKEND=x11 qtfm"
 
 #
-bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.swaylock/config 
+bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.swaylock/config
+bindsym $mod+Alt+c exec gcolor3
 
 exec waybar
+
+# clipbord
+
+#bindsym Ctrl+Shift+c exec wl-copy
+#bindsym Ctrl+Shift+v exec wl-paste
 
 ### Key bindings
 #
