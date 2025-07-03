@@ -1,0 +1,57 @@
+[window]
+
+opacity = 0.7
+
+# Default colors
+[colors.primary]
+background = '#000000'
+foreground = '#edecee'
+
+# Normal colors
+[colors.normal]
+black   = '#141414'
+red     = '#ff3d3d'
+green   = '#5fdf41'
+yellow  = '#ffca85'
+blue    = '#4ab3e2'
+magenta = '#a44aef'
+cyan    = '#32ffba'
+white   = '#ffffff'
+
+# Bright colors
+[colors.bright]
+black   = '#141414'
+red     = '#ff3d3d'
+green   = '#5fdf41'
+yellow  = '#ffca85'
+blue    = '#4ab3e2'
+magenta = '#a44aef'
+cyan    = '#32ffba'
+white   = '#ffffff'
+
+[colors.selection]
+text       = 'CellForeground'
+background = '#999999'
+
+[colors.cursor]
+cursor = '#ffffff'
+
+[font.offset]
+x = 0
+y = 0
+
+[font]
+size = 11
+
+[font.normal]
+family = " GohuFont uni14 Nerd Font"
+
+[mouse]
+bindings = [
+    { mouse = "Right", mods = "Control", action = "Copy" },
+    { mouse = "Left", mods = "Control", action = "Paste" }
+]
+
+
+[general]
+live_config_reload = true
