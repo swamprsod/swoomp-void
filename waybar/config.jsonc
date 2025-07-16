@@ -1,15 +1,11 @@
 {
-  "layer": "top",
-  "position": "top",
+  "layer": "bottom",
+  "position": "bottom",
   "height": 5,
 
   "modules-left": [
     "custom/clock",
-    "custom/sep",
     "tray"
-  ],
-  "modules-center": [
-    "sway/workspaces"
   ],
   "modules-right": [	  
     "temperature",
@@ -49,9 +45,10 @@
     "interval": 10
 },
 
+
   "tray": {
     "icon-size": 18,
-	"spacing": 10,
+       "spacing": 8,
     "show-passive-items": "true"
   },
   "sway/language": {
