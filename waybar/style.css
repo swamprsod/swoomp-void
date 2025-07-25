@@ -56,13 +56,13 @@ tooltip#memory {
 }
 
 #language,
-#memory
-#cpu
-#temperature
-#battery
+#memory,
+#cpu,
+#temperature,
+#battery,
 #workspaces,
 #custom-clock,
-#pulseaudio,
+#wireplumber,
 #tray {
 }
 #workspaces {
@@ -126,14 +126,14 @@ tooltip#memory {
   border-bottom-color: rgba(000, 000, 000, 1)
 }
 
-#pulseaudio {
-  color: #2fd636;
+#wireplumber {
+  color: #6ef874;
   border-bottom: 2px solid transparent;
   background-color: transparent;
   margin: 2px;
   border-bottom-color: rgba(255, 255, 255, 1)
 }
-#pulseaudio.muted {
+#wireplumber.muted {
   color: #d62f2f;
   border-bottom: 2px solid transparent;
   background-color: transparent;
