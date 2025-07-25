@@ -9,7 +9,7 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 set $menu wmenu-run
-set $browser waterfox
+set $browser qutebrowser
 set $file_manager qtfm
 
 ### layout
@@ -21,9 +21,9 @@ default_floating_border pixel 2
 smart_borders off
 smart_corner_radius off
 default_border pixel 2
-client.focused #000000 #000000 #000000 #000000 #000000
-#client.unfocused #000000 #000000 #000000 #000000 #000000
-#client.focused_inactive #000000 #000000 #000000
+client.focused #034100 #000d00 #034100 #034100 #034100
+client.unfocused #034100 #000d00 #034100 #034100 #034100 
+client.focused_inactive #034100 #000d00 #034100 #034100 #034100
 
 
 ### wallpaper
@@ -32,31 +32,50 @@ bindsym $mod+Alt+w exec pkill swaybg && swaybg -i /home/wallpapers/$(ls /home/wa
 
 ### tiling
 
-exec /usr/bin/python3 /etc/sway/scripts/autotiling.py
+#  exec /usr/bin/python3 /etc/sway/scripts/autotiling.py
 
 ### ne ebu
 
-exec /usr/bin/python3 /etc/sway/scripts/trans.py
-blur_noise 0.01
-blur_passes 1
-blur enable
-default_dim_inactive 0.2
+#  exec /usr/bin/python3 /etc/sway/scripts/trans.py
+#blur_noise 0.01
+#blur_passes 1
+#blur enable
+default_dim_inactive 0
 #blur_xray enable
 font "GohuFont 14 Nerd Font Mono 11"
-
-#for_window [all] opacity 0.9
+for_window [all] opacity 1
 #for_window [all] titlebar_hide
+
+
+###  idk
+
+exec dbus-update-activation-environment --all
+exec xdg-desktop-portal -r &
+exec xdg-desktop-portal-wlr &
+exec xdg-desktop-portal-gtk &
+exec pipewire & sleep 2 && wireplumber &
+exec pipewire-pulse &
+#exec wpfixdev
+#exec pipkafix
+
+for_window [all] floating enable
+#workspace_layout stacking
 
 for_window [title="btop"] {
   floating enable; 
   resize set 814 672
 }
-for_window [title="vlc"] floating enable
-for_window [class="discord"] opacity 0.9
-for_window [app_id="io.github.kotatogram"] opacity 0.9
-for_window [title="Color Picker"] floating enable
-for_window [title="Volume Control"] floating enable
-for_window [app_id="org.polymc.PolyMC"] floating enable
+# for_window [title="vlc"] floating enable
+#for_window [class="discord"] opacity 1
+#for_window [app_id="io.github.kotatogram"] opacity 1
+#for_window [title="Color Picker"] floating enable
+#for_window [title="Volume Control"] floating enable
+#for_window [app_id="org.polymc.PolyMC"] floating enable
+# for_window [class="pano-scrobbler"] floating enable
+#for_window [class="qutebrowser"] titlebar_hide
+
+for_window [class="conky"] move position 300px 500px
+for_window [app_id="conky"] opacity 0.6
 ### clipbord
 
 bindsym --to-code Ctrl+Shift+C exec wl-copy
@@ -79,6 +98,7 @@ bindsym $mod+Alt+c exec gcolor3
 
 exec waybar
 
+bindsym $mod+n border toggle
 # clipbord
 
 #bindsym Ctrl+Shift+c exec wl-copy
@@ -166,25 +186,25 @@ exec waybar
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    #bindsym $mod+b splith
+    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    #bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    #bindsym $mod+a focus parent
 #
 # Scratchpad
 
