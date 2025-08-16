@@ -15,8 +15,6 @@ set $file_manager qtfm
 ### layout
 
 exec alacritty
-exec dbus-update-activation-environment --all
-exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus --nofork --print-address=3 3>&1 1> ~/.dbus-session.log 2>&1 &
 
 gaps inner 10
 default_floating_border pixel 2
@@ -51,9 +49,6 @@ for_window [all] opacity 1
 ###  idk
 
 exec dbus-update-activation-environment --all
-exec xdg-desktop-portal -r &
-exec xdg-desktop-portal-wlr &
-exec xdg-desktop-portal-gtk &
 exec pipewire & sleep 2 && wireplumber &
 exec pipewire-pulse &
 #exec wpfixdev
