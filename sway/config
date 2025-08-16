@@ -15,16 +15,17 @@ set $file_manager qtfm
 ### layout
 
 exec alacritty
+exec dbus-update-activation-environment --all
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus --nofork --print-address=3 3>&1 1> ~/.dbus-session.log 2>&1 &
 
 gaps inner 10
 default_floating_border pixel 2
 smart_borders off
 smart_corner_radius off
-default_border pixel 2
-client.focused #034100 #000d00 #034100 #034100 #034100
-client.unfocused #034100 #000d00 #034100 #034100 #034100 
-client.focused_inactive #034100 #000d00 #034100 #034100 #034100
-
+default_border pixel 1
+client.focused #ffffff #959595 #000000 #959595 #848484
+client.unfocused  #ffffff #959595 #959595 #959595  #848484
+client.focused_inactive  #ffffff #959595 #959595 #959595 #848484 
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
@@ -93,10 +94,10 @@ input * {
 bindsym $mod+Shift+Tab exec "GTK_THEME=Adwaita:dark GDK_BACKEND=x11 qtfm"
 
 #
-bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.swaylock/config
+bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/
 bindsym $mod+Alt+c exec gcolor3
 
-exec waybar
+exec "sleep 1 && waybar"
 
 bindsym $mod+n border toggle
 # clipbord
