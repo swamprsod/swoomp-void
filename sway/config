@@ -20,10 +20,10 @@ gaps inner 10
 default_floating_border pixel 2
 smart_borders off
 smart_corner_radius off
-default_border pixel 1
-client.focused #ffffff #959595 #000000 #959595 #848484
-client.unfocused  #ffffff #959595 #959595 #959595  #848484
-client.focused_inactive  #ffffff #959595 #959595 #959595 #848484 
+default_border pixel 2
+client.focused #adadad #959595 #ffffff #959595 #959595
+client.unfocused  #adadad #959595 #959595 #959595  #848484
+client.focused_inactive  #adadad #959595 #959595 #959595 #848484 
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
@@ -48,7 +48,6 @@ for_window [all] opacity 1
 
 ###  idk
 
-exec dbus-update-activation-environment --all
 exec pipewire & sleep 2 && wireplumber &
 exec pipewire-pulse &
 #exec wpfixdev
@@ -57,10 +56,7 @@ exec pipewire-pulse &
 for_window [all] floating enable
 #workspace_layout stacking
 
-for_window [title="btop"] {
-  floating enable; 
-  resize set 814 672
-}
+for_window [title="btop"] resize set 814 668
 # for_window [title="vlc"] floating enable
 #for_window [class="discord"] opacity 1
 #for_window [app_id="io.github.kotatogram"] opacity 1
@@ -92,7 +88,7 @@ bindsym $mod+Shift+Tab exec "GTK_THEME=Adwaita:dark GDK_BACKEND=x11 qtfm"
 bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/
 bindsym $mod+Alt+c exec gcolor3
 
-exec "sleep 1 && waybar"
+exec "sleep 10 && waybar"
 
 bindsym $mod+n border toggle
 # clipbord

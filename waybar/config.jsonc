@@ -1,6 +1,6 @@
 {
-  "layer": "bottom",
-  "position": "bottom",
+  "layer": "up",
+  "position": "up",
   "height": 5,
 
   "modules-left": [
@@ -9,15 +9,10 @@
   ],
   "modules-right": [	  
     "temperature",
-    "custom/sep",
     "cpu",
-    "custom/sbtop",
     "memory",
-    "custom/sep",
     "battery",
-    "custom/sep",
     "sway/language",
-    "custom/sep",
     "wireplumber"
   ],
   "custom/sep": {
@@ -41,26 +36,23 @@
   },
 
   "custom/clock": {
-    "exec": "date +'%d.%b %H:%M'",
-    "interval": 10
+    "exec": "date +'%d.%m.%y %H:%M:%S'",
+    "interval": 1
 },
 
 
   "tray": {
-    "icon-size": 18,
-       "spacing": 8,
-    "show-passive-items": "true"
+    "spacing": 8
   },
+
   "sway/language": {
     "interval": 5,
-    "format": " {}",
-    "format-en": " EN",
-    "format-ru": " RU"
+    "format": {} 
   },
 
   "cpu": {
-    "interval": 10,
-    "format": " {usage}%",
+    "interval": 5,
+    "format": "CPU:{usage}%",
     "on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'",
     "max-length": 10 
   },
@@ -69,21 +61,14 @@
     "critical-threshold": 80,
     "interval": 5,
     "thermal-zone": 1,
-    "format": "{icon} {temperatureC}°C",
-    "format-icons": [
-        "", 
-        "", 
-        "", 
-        "", 
-        ""  
-    ],
+    "format": "TEMP:{temperatureC}°C",
     "tooltip": true
    },
 
   "memory": {
-	"interval": 50,
-	"format": " {}%",
-	"on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'",
+	"interval": 5,
+	"format": "MEM:{}%",
+	"on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'"
    },
 
    "battery": {
@@ -94,18 +79,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}% ({time}) ",
-    "format-charging": " {icon} {capacity}% ({time}) ",
-    "format-full": " {icon} Full",
+    "format": "POWER:{capacity}% ({time}) ",
+    "format-charging": "POWER+CH:{capacity}% ({time}) ",
+    "format-full": "POWER:100%",
     "format-time": "{H}h{M}m",
-    "interval": 30,
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ]
+    "interval": 10
 },
 
   "wireplumber": { 
@@ -128,6 +106,5 @@
     },
     "scroll-step": 5,
     "on-click": "GDK_BACKEND=x11 pavucontrol",
-    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
   }
 }

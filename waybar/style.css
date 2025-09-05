@@ -1,13 +1,13 @@
 * {
   border: none;
-  font-family: "GohuFont uni14 Nerd Font", monospace;
-  font-size: 16px;
+  font-family: "Terminus";
+  font-size: 14px;
   font-weight: 600;
-  background: none;
+  min-height: 0
 }
 
 window#waybar {
-  background: transparent;
+  background: #000000;
 }
 .modules-left {
   border-radius: 0px;
@@ -20,9 +20,8 @@ window#waybar {
   opacity: 1;
   	}
 .modules-center {
-  border-radius: 3px;
+  border-radius: 0px;
   background: transparent;
-  padding: 3px 0;
 }
 tooltip {
   color: #000000;
@@ -43,17 +42,7 @@ tooltip#memory {
 .modules-center {
 }
 
-#custom-sep {
-  color: transparent;
-  margin: 4px 5;
-}
-#custom-sbtop {
-  color: transparent;
-  margin: 4px 5;
-}
-#custom-scrobbler {
-  color: #ffffff;
-}
+
 
 #language,
 #memory,
@@ -64,14 +53,13 @@ tooltip#memory {
 #custom-clock,
 #wireplumber,
 #tray {
+  background-color: #000000
 }
 #workspaces {
-  border-radius: 4px;
 }
 #workspaces button {
   color: #ffffff;
-  background: none;
-  padding: 0;
+  background: transparent;
 }
 #workspaces button:hover {
   color: #000000;
@@ -81,71 +69,50 @@ tooltip#memory {
 }
 #memory {
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: #ffffff
-
+  margin: 0px 15px;
 }
 
 #tray {
-  padding: 5;
+  margin: 0px 10px
 }
 
 #cpu {
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: #ffffff
+  margin: 0px 15px;
 }
 
 #temperature {
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px 0;
-  padding: 0;
-  border-bottom-color: #ffffff
+  margin: 0px 15px;
 }
 
 #battery {
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: #ffffff
+  margin: 0px 15px;
 }
 
 #custom-clock {
   font-weight: 600;
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: rgba(000, 000, 000, 1)
+  margin: 0px;
+  margin-left: 2px
 }
 
 #wireplumber {
   color: #6ef874;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: rgba(255, 255, 255, 1)
+  margin: 0px;
+  margin-left: 15px;
+  margin-right: 3px
 }
 #wireplumber.muted {
   color: #d62f2f;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
-  border-bottom-color: rgba(255, 255, 255, 1)
-
+  margin: 0px;
+  margin-left: 15px;
+  margin-right: 3px
 }
 #language {
   color: #ffffff;
-  border-bottom: 2px solid transparent;
-  background-color: transparent;
-  margin: 2px;
+  margin: 0px 8px;
   border-bottom-color: rgba(255, 255, 255, 1)
 
 }

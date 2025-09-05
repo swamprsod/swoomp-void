@@ -8,9 +8,9 @@ Plug 'https://github.com/xiyaowong/transparent.nvim'
 
 call plug#end()
 
-nnoremap <C-t> :NERDTreeToggle<CR>
-
 colorscheme dogrun
+
+nnoremap <C-t> :NERDTreeToggle<CR>
 
 lua <<EOF
 require("transparent").setup({
@@ -26,3 +26,9 @@ lua <<EOF
 vim.keymap.set('v', '<C-S-c>', '"+y', { noremap = true, silent = true })
 EOF
 
+autocmd BufNewFile,BufRead *.asm,*.nasm set filetype=nasm
+autocmd FileType nasm setlocal tabstop=4
+autocmd FileType nasm setlocal shiftwidth=4
+autocmd FileType nasm setlocal expandtab
+autocmd FileType nasm setlocal autoindent
+autocmd FileType nasm setlocal smartindent

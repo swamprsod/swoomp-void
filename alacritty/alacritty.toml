@@ -1,16 +1,16 @@
 [window]
-opacity = 0.7
+opacity = 0.85
 
 # Default colors
 [colors.primary]
-background = '#001000'
+background = '#2a2a2a'
 foreground = '#edecee'
 
 # Normal colors
 [colors.normal]
 black   = '#121212'
 red     = '#ff3d3d'
-green   = '#5fdf41'
+green   = '#167600'
 yellow  = '#ffca85'
 blue    = '#4ab3e2'
 magenta = '#a44aef'
@@ -21,7 +21,7 @@ white   = '#ffffff'
 [colors.bright]
 black   = '#030303'
 red     = '#ff3d3d'
-green   = '#5fdf41'
+green   = '#167600'
 yellow  = '#ffca85'
 blue    = '#4ab3e2'
 magenta = '#a44aef'
