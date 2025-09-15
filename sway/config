@@ -82,7 +82,7 @@ input * {
 
 ### qtfm
 
-bindsym $mod+Shift+Tab exec "GTK_THEME=Adwaita:dark GDK_BACKEND=x11 qtfm"
+bindsym $mod+Shift+Tab exec "alacritty -e ranger"
 
 #
 bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/

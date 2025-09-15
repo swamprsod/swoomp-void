@@ -22,6 +22,7 @@ window#waybar {
 .modules-center {
   border-radius: 0px;
   background: transparent;
+  margin: 0px 250px 0px 0px
 }
 tooltip {
   color: #000000;
@@ -38,11 +39,6 @@ tooltip * {
 tooltip#memory {
   color: #000000;
 }
-
-.modules-center {
-}
-
-
 
 #language,
 #memory,
@@ -67,6 +63,7 @@ tooltip#memory {
 #workspaces button.focused {
   color: #ffffff;
 }
+
 #memory {
   color: #ffffff;
   margin: 0px 15px;
@@ -79,6 +76,7 @@ tooltip#memory {
 #cpu {
   color: #ffffff;
   margin: 0px 15px;
+  min-width: 70px
 }
 
 #temperature {
@@ -112,7 +110,5 @@ tooltip#memory {
 }
 #language {
   color: #ffffff;
-  margin: 0px 8px;
-  border-bottom-color: rgba(255, 255, 255, 1)
-
+  margin: 0px 10px;
 }

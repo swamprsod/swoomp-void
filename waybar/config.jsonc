@@ -7,7 +7,12 @@
     "custom/clock",
     "tray"
   ],
-  "modules-right": [	  
+
+  "modules-center": [
+    "custom/hostname"
+  ],
+
+  "modules-right": [
     "temperature",
     "cpu",
     "memory",
@@ -36,10 +41,20 @@
   },
 
   "custom/clock": {
-    "exec": "date +'%d.%m.%y %H:%M:%S'",
+    "exec": "date +'%d/%m/%y %H:%M:%S'",
     "interval": 1
 },
 
+  "custom/hostname": {
+    "exec": "hostname",
+    "format": "{}"
+  },
+
+  "custom/uptime": {
+      "exec": "~/bin/uptime_wbr",
+      "format": "UP:{}",
+      "interval": 60
+  },
 
   "tray": {
     "spacing": 8
@@ -79,32 +94,19 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "POWER:{capacity}% ({time}) ",
-    "format-charging": "POWER+CH:{capacity}% ({time}) ",
+    "format": "POWER:{capacity}%",
+    "format-charging": "POWER+CH:{capacity}%",
     "format-full": "POWER:100%",
     "format-time": "{H}h{M}m",
     "interval": 10
 },
 
   "wireplumber": { 
-    "format": "{icon}{volume}%",
+    "format": "{volume}%",
     "device": "alsa_output.pci-0000_00_1b.0.analog-stereo",
-    "format-bluetooth": " {icon}{volume}%",
-    "format-muted": " MUTE ",
-    "format-icons": {
-      "headphones": " ",
-      "handsfree": " ",
-      "headset": "  ",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-            " ",
-            " ",
-            "  "
-      ]
-    },
+    "format-bluetooth": "{icon}{volume}%",
+    "format-muted": "0%",
     "scroll-step": 5,
-    "on-click": "GDK_BACKEND=x11 pavucontrol",
+    "on-click": "GDK_BACKEND=x11 pavucontrol"
   }
 }
