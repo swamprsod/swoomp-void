@@ -1,31 +1,29 @@
 [window]
-opacity = 0.85
+opacity = 0.95
 
 # Default colors
 [colors.primary]
-background = '#2a2a2a'
+background = '#000000'
 foreground = '#edecee'
 
-# Normal colors
 [colors.normal]
-black   = '#121212'
-red     = '#ff3d3d'
-green   = '#167600'
-yellow  = '#ffca85'
-blue    = '#4ab3e2'
-magenta = '#a44aef'
-cyan    = '#32ffba'
-white   = '#ffffff'
+black   = '#000000'
+red     = '#aa0000'
+green   = '#00aa00'
+yellow  = '#aa5500'
+blue    = '#0000aa'
+magenta = '#aa00aa'
+cyan    = '#00aaaa'
+white   = '#aaaaaa'
 
-# Bright colors
 [colors.bright]
-black   = '#030303'
-red     = '#ff3d3d'
-green   = '#167600'
-yellow  = '#ffca85'
-blue    = '#4ab3e2'
-magenta = '#a44aef'
-cyan    = '#32ffba'
+black   = '#555555'
+red     = '#ff5555'
+green   = '#55ff55'
+yellow  = '#ffff55'
+blue    = '#5555ff'
+magenta = '#ff55ff'
+cyan    = '#55ffff'
 white   = '#ffffff'
 
 [colors.selection]
@@ -40,10 +38,10 @@ x = 0
 y = 0
 
 [font]
-size = 11
+size = 10.5
 
 [font.normal]
-family = " GohuFont uni14 Nerd Font"
+family = "GohuFont 14 Nerd Font Mono"
 
 [mouse]
 bindings = [

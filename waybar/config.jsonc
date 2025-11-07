@@ -9,7 +9,6 @@
   ],
 
   "modules-center": [
-    "custom/hostname"
   ],
 
   "modules-right": [
@@ -20,14 +19,7 @@
     "sway/language",
     "wireplumber"
   ],
-  "custom/sep": {
-	  "format": ""
-  },
-  "custom/sbtop": {
-	  "format": "",
-	  "on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'"
-  },
-  
+
   "sway/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -83,7 +75,7 @@
   "memory": {
 	"interval": 5,
 	"format": "MEM:{}%",
-	"on-click-right": "swaymsg exec 'alacritty -t 'btop' -e btop'"
+	"on-click-right": "swaymsg exec 'alacritty -t 'btope' -e btop'"
    },
 
    "battery": {

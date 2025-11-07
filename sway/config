@@ -23,7 +23,6 @@ exec alacritty
 gaps inner 10
 default_floating_border pixel 2
 smart_borders off
-smart_corner_radius off
 default_border pixel 2
 client.focused #adadad #959595 #ffffff #959595 #959595
 client.unfocused  #adadad #959595 #959595 #959595  #848484
@@ -35,7 +34,6 @@ bindsym $mod+Alt+w exec pkill swaybg && swaybg -i /home/wallpapers/$(ls /home/wa
 bindsym $mod+Alt+e exec pkill swaybg && swaybg -i /home/wallpapers.funny/$(ls /home/wallpapers.funny | shuf -n 1) -m fill 
 
 
-default_dim_inactive 0
 #blur_xray enable
 for_window [all] opacity 1
 #for_window [all] titlebar_hide
@@ -60,7 +58,7 @@ for_window [class="btope"] opacity set 1
 #for_window [title="Color Picker"] floating enable
 #for_window [title="Volume Control"] floating enable
 #for_window [class="qutebrowser"] titlebar_hide
-for_window [title="Alacritty"] resize set 700 500
+for_window [title="Alacritty"] resize set 806 564
 for_window [class="conky"] move position 300px 500px
 for_window [app_id="conky"] opacity 0.6
 ### clipbord
@@ -116,7 +114,7 @@ bindsym $mod+n border toggle
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'nigger' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
