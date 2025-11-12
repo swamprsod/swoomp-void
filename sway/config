@@ -15,6 +15,10 @@ set $file_manager ranger
 exec sleep 3 && mpdscribble
 exec mpd
 bindsym $mod+Shift+m exec "st -c ncmpcpp -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+period exec "mpc next"
+bindsym $mod+comma exec "mpc prev"
+bindsym $mod+slash exec "mpc pause"
+bindsym $mod+Shift+slash exec "mpc play"
 
 ### layout
 
