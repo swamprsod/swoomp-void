@@ -45,14 +45,8 @@ tooltip#memory {
 #cpu,
 #temperature,
 #battery,
-#workspaces,
 #custom-clock,
 #wireplumber,
-#tray {
-  background-color: #000000
-}
-#workspaces {
-}
 #workspaces button {
   color: #ffffff;
   background: transparent;

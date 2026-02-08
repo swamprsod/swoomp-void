@@ -4,8 +4,7 @@
   "height": 5,
 
   "modules-left": [
-    "custom/clock",
-    "tray"
+    "custom/clock"
   ],
 
   "modules-center": [
@@ -19,18 +18,6 @@
     "sway/language",
     "wireplumber"
   ],
-
-  "sway/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1",
-    "format-icons": {
-      "focused": "   ",
-      "urgent": "   ",
-      "default": "   "
-    }
-  },
 
   "custom/clock": {
     "exec": "date +'%d/%m/%y %H:%M:%S'",
@@ -48,9 +35,6 @@
       "interval": 60
   },
 
-  "tray": {
-    "spacing": 8
-  },
 
   "sway/language": {
     "interval": 5,
@@ -68,13 +52,13 @@
     "critical-threshold": 80,
     "interval": 5,
     "thermal-zone": 1,
-    "format": "TEMP:{temperatureC}°C",
+    "format": "TEMP:{temperatureK} K",
     "tooltip": true
    },
 
   "memory": {
 	"interval": 5,
-	"format": "MEM:{}%",
+	"format": "RAM:{}%",
 	"on-click-right": "swaymsg exec 'alacritty -t 'btope' -e btop'"
    },
 
