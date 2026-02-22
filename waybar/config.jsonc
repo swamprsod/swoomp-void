@@ -1,19 +1,19 @@
 {
   "layer": "up",
-  "position": "up",
+  "position": "bottom",
+  "exclusive": false,
   "height": 5,
 
   "modules-left": [
-    "custom/clock"
+    "custom/uptime"
   ],
 
   "modules-center": [
+    "custom/clock"
   ],
 
   "modules-right": [
     "temperature",
-    "cpu",
-    "memory",
     "battery",
     "sway/language",
     "wireplumber"
@@ -52,7 +52,7 @@
     "critical-threshold": 80,
     "interval": 5,
     "thermal-zone": 1,
-    "format": "TEMP:{temperatureK} K",
+    "format": "{temperatureK} K",
     "tooltip": true
    },
 
@@ -70,9 +70,9 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "POWER:{capacity}%",
-    "format-charging": "POWER+CH:{capacity}%",
-    "format-full": "POWER:100%",
+    "format": "{capacity}%",
+    "format-charging": "+CH:{capacity}%",
+    "format-full": "100%",
     "format-time": "{H}h{M}m",
     "interval": 10
 },

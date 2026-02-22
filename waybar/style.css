@@ -9,21 +9,24 @@
 window#waybar {
   background: #000000;
 }
+
 .modules-left {
   border-radius: 0px;
   background: transparent;
   opacity: 1;
-  	}
+}
+
 .modules-right {
   border-radius: 0px;
   background: transparent;
   opacity: 1;
-  	}
+}
+
 .modules-center {
   border-radius: 0px;
   background: transparent;
-  margin: 0px 250px 0px 0px
 }
+
 tooltip {
   color: #000000;
   background-color: transparent;
@@ -51,9 +54,11 @@ tooltip#memory {
   color: #ffffff;
   background: transparent;
 }
+
 #workspaces button:hover {
   color: #000000;
 }
+
 #workspaces button.focused {
   color: #ffffff;
 }
@@ -86,22 +91,22 @@ tooltip#memory {
 #custom-clock {
   font-weight: 600;
   color: #ffffff;
-  margin: 0px;
-  margin-left: 2px
 }
 
 #wireplumber {
-  color: #6ef874;
+  color: #ffffff;
   margin: 0px;
   margin-left: 15px;
   margin-right: 3px
 }
+
 #wireplumber.muted {
-  color: #d62f2f;
+  color: #fffffa;
   margin: 0px;
   margin-left: 15px;
   margin-right: 3px
 }
+
 #language {
   color: #ffffff;
   margin: 0px 10px;
