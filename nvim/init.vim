@@ -11,16 +11,12 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 
 lua <<EOF
 require("transparent").setup({
-  extra_groups = { -- Ничего тут не трогай нахуй оно тебе можёт всё сломать!!!!!!!!!
+  extra_groups = { 
     "NormalFloat", 
     "NvimTreeNormal", 
   },
   exclude_groups = {}, 
 })
-EOF
-
-lua <<EOF
-vim.keymap.set('v', '<C-S-c>', '"+y', { noremap = true, silent = true })
 EOF
 
 

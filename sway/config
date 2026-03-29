@@ -37,13 +37,14 @@ bindsym $mod+Alt+w exec pkill swaybg && swaybg -i /home/wallpapers/$(ls /home/wa
 bindsym $mod+Alt+e exec pkill swaybg && swaybg -i /home/wallpapers.funny/$(ls /home/wallpapers.funny | shuf -n 1) -m fill 
 
 
-#blur_xray enable
 for_window [all] opacity 1
-#for_window [all] titlebar_hide
 
-
+### current song
+bindsym $mod+apostrophe exec /home/rsod/bin/crtr
 ###  idk
 exec pipewire 
+exec wl-clipboard-history -t
+
 
 for_window [all] floating enable
 #workspace_layout stacking
@@ -66,7 +67,6 @@ for_window [class="conky"] move position 300px 500px
 for_window [app_id="conky"] opacity 0.6
 ### clipbord
 
-bindsym --to-code Ctrl+Shift+C exec wl-copy
 
 ### klaviatura
 
@@ -83,7 +83,7 @@ bindsym $mod+Shift+Tab exec "st -e ranger"
 for_window [title="ranger"] resize set 782 594
 #
 bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/
-bindsym $mod+Alt+c exec gcolor3
+bindsym $mod+Alt+Shift+c exec gcolor3
 
 exec "sleep 10 && waybar"
 

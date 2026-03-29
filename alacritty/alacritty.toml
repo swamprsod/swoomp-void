@@ -10,7 +10,7 @@ foreground = '#edecee'
 black   = '#000000'
 red     = '#aa0000'
 green   = '#00aa00'
-yellow  = '#aa5500'
+yellow  = '#fff500'
 blue    = '#0000aa'
 magenta = '#aa00aa'
 cyan    = '#00aaaa'
@@ -46,12 +46,11 @@ size = 10.5
 [font.normal]
 family = "GohuFont uni14 Nerd Font Mono"
 
-[mouse]
+[keyboard]
 bindings = [
-    { mouse = "Right", mods = "Control", action = "Copy" },
-    { mouse = "Left", mods = "Control", action = "Paste" }
+  { key = "C", mods = "Alt", action = "Copy" },
+  { key = "V", mods = "Alt", action = "Paste" },
 ]
-
 
 [general]
 live_config_reload = true
