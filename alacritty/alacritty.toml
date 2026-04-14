@@ -44,7 +44,7 @@ y = 0
 size = 10.5
 
 [font.normal]
-family = "GohuFont uni14 Nerd Font Mono"
+family = "Terminus"
 
 [keyboard]
 bindings = [

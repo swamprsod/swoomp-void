@@ -14,13 +14,20 @@ set $file_manager ranger
 
 exec sleep 3 && mpdscribble
 exec mpd
-bindsym $mod+Shift+m exec "st -c ncmpcpp -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+Shift+m exec "alacritty -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
-### layout
+### screnshots
 
+bindsym Print exec grim /home/rsod/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
+bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
+
+bindsym $mod+V+Print exec /home/rsod/bin/toggle_r-s.sh
+
+### layout
+bindsym $mod+t floating toggle
 exec alacritty
 
 gaps inner 10
@@ -45,7 +52,7 @@ bindsym $mod+apostrophe exec /home/rsod/bin/crtr
 exec pipewire 
 exec wl-clipboard-history -t
 
-
+bindsym $mod+Alt+P exec /home/rsod/bin/slurpos
 for_window [all] floating enable
 #workspace_layout stacking
 
@@ -173,10 +180,8 @@ bindsym $mod+n border toggle
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
     #bindsym $mod+b splith
-    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     #bindsym $mod+s layout stacking
@@ -236,9 +241,6 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 ### screenshots 
-
-    bindsym Print exec grim /home/rsod/screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
-    bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
 
 ### boobwamaba
 

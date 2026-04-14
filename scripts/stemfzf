@@ -1,0 +1,18 @@
+#!/bin/bash
+
+games=(
+    "KoG/gores:swaymsg exec ddnet"
+    "Minecraft:swaymsg exec 'QT_QPA_PLATFORM=xcb GDK_BACKEND=x11 prismlauncher'"
+    "Geometry Dash:cd ~/games/gd/gdsub && WINEPREFIX=~/.wine-geometrydash WINEDLLOVERRIDES='xinput1_4=n,b' wine GeometryDash.exe"
+    "Turing Complete:cd ~/games/tc/ && ./start"
+    "tmod/Terraria:~/games/teraria/tmod/st.sh"
+)
+
+printf "%s\n" "${games[@]%%:*}" | fzf --layout reverse | while read g; do
+    for entry in "${games[@]}"; do
+        if [[ "$entry" == "$g:"* ]]; then
+            eval "${entry#*:}"
+            break
+        fi
+    done
+done
