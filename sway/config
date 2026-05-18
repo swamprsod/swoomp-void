@@ -21,10 +21,10 @@ bindsym $mod+slash exec "mpc toggle"
 
 ### screnshots
 
-bindsym Print exec grim /home/rsod/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
-bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
+bindsym Print exec grim -c /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
+bindsym --release Ctrl+Print exec grim -c -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
 
-bindsym $mod+V+Print exec /home/rsod/bin/toggle_r-s.sh
+bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
 
 ### layout
 bindsym $mod+t floating toggle
@@ -34,9 +34,9 @@ gaps inner 10
 default_floating_border pixel 2
 smart_borders off
 default_border pixel 2
-client.focused #adadad #959595 #ffffff #959595 #959595
-client.unfocused  #adadad #959595 #959595 #959595  #848484
-client.focused_inactive  #adadad #959595 #959595 #959595 #848484 
+client.focused #adadad #959595 #ffffff #959595 #303030
+client.unfocused  #adadad #959595 #959595 #959595 #050505
+client.focused_inactive  #adadad #959595 #959595 #959595 #050505 
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
@@ -50,7 +50,6 @@ for_window [all] opacity 1
 bindsym $mod+apostrophe exec /home/rsod/bin/crtr
 ###  idk
 exec pipewire 
-exec wl-clipboard-history -t
 
 bindsym $mod+Alt+P exec /home/rsod/bin/slurpos
 for_window [all] floating enable

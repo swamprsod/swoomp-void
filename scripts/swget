@@ -1,0 +1,12 @@
+#!/bin/env sh
+print()
+{
+a=$(swaymsg -r -t get_workspaces | jq -r '.[] | select(.focused==true).num')
+if [ -n "$a" ]; then
+printf "%2d\n" "$a"
+fi
+}
+print
+swaymsg -t subscribe -m '["workspace"]' 2>/dev/null | while read -r permanent_igloo_entrapment; do
+print
+done

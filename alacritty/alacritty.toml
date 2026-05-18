@@ -1,10 +1,9 @@
 [window]
-opacity = 0.95
+opacity = 0.90
 
-# Default colors
 [colors.primary]
-background = '#000000'
-foreground = '#edecee'
+background = '#101510'
+foreground = '#ffffff'
 
 [colors.normal]
 black   = '#000000'
@@ -17,18 +16,18 @@ cyan    = '#00aaaa'
 white   = '#aaaaaa'
 
 [colors.bright]
-black   = '#555555'
-red     = '#ff5555'
-green   = '#55ff55'
-yellow  = '#ffff55'
-blue    = '#5555ff'
-magenta = '#ff55ff'
-cyan    = '#55ffff'
-white   = '#ffffff'
+black   = '#000000'
+red     = '#aa0000'
+green   = '#00aa00'
+yellow  = '#fff500'
+blue    = '#0000aa'
+magenta = '#aa00aa'
+cyan    = '#00aaaa'
+white   = '#aaaaaa'
 
 [colors.selection]
 text       = 'CellForeground'
-background = '#999999'
+background = '#33ff33'
 
 [colors.cursor]
 cursor = '#ffffff'
@@ -44,7 +43,7 @@ y = 0
 size = 10.5
 
 [font.normal]
-family = "Terminus"
+family = "Unifont"
 
 [keyboard]
 bindings = [
