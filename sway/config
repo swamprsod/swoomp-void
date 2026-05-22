@@ -19,6 +19,23 @@ bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
+
+bar {
+status_command ~/.config/sway/status.sh
+font "Terminus Bold" 10.5
+status_edge_padding 0
+status_padding 0
+position top
+tray_output none
+workspace_buttons no
+height 12
+ colors {
+ statusline #666666
+ background #000000
+    }
+}
+
+
 ### screnshots
 
 bindsym Print exec grim -c /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
@@ -90,8 +107,6 @@ for_window [title="ranger"] resize set 782 594
 #
 bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/
 bindsym $mod+Alt+Shift+c exec gcolor3
-
-exec "sleep 10 && waybar"
 
 bindsym $mod+n border toggle
 # clipbord
