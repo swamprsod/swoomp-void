@@ -4,6 +4,7 @@ Plug 'https://github.com/preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/xiyaowong/transparent.nvim'
 Plug 'itchyny/lightline.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -19,6 +20,14 @@ require("transparent").setup({
   exclude_groups = {}, 
 })
 EOF
-
+set noshowmode
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_quickfix_mode = 0
 
 autocmd BufNewFile,BufRead *.asm,*.nasm set filetype=nasm
+
+
+let g:lightline = {
+      \ 'colorscheme': 'molokai',
+      \ }

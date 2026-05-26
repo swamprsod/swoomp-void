@@ -8,7 +8,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu 'no'
+set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff' --auto-select"
 set $browser qutebrowser
 set $file_manager ranger
 
@@ -20,18 +20,20 @@ bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
 
+
 bar {
 status_command ~/.config/sway/status.sh
 font "Terminus Bold" 10.5
 status_edge_padding 0
 status_padding 0
 position top
+mode hide
 tray_output none
 workspace_buttons no
 height 12
  colors {
  statusline #666666
- background #000000
+ background #00000011
     }
 }
 
@@ -51,9 +53,11 @@ gaps inner 10
 default_floating_border pixel 2
 smart_borders off
 default_border pixel 2
-client.focused #adadad #959595 #ffffff #959595 #303030
-client.unfocused  #adadad #959595 #959595 #959595 #050505
-client.focused_inactive  #adadad #959595 #959595 #959595 #050505 
+client.unfocused         #303030 #303030 #888888 #303030 #303030
+client.focused_inactive  #303030 #303030 #888888 #303030 #303030
+client.focused           #303003 #303030 #1d3e14 #1d3e14 #1d3e14
+
+
 
 ### wallpaper
 exec swaybg -i /home/wallpapers/$(ls /home/wallpapers | shuf -n 1) -m fill
@@ -125,7 +129,7 @@ bindsym $mod+n border toggle
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+x exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
