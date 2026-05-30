@@ -23,17 +23,17 @@ bindsym $mod+slash exec "mpc toggle"
 
 bar {
 status_command ~/.config/sway/status.sh
-font "Terminus Bold" 10.5
+font "Terminus Bold" 11
 status_edge_padding 0
 status_padding 0
 position top
 mode hide
 tray_output none
 workspace_buttons no
-height 12
+height 13
  colors {
- statusline #666666
- background #00000011
+ statusline #9aff9a
+ background #00000055
     }
 }
 
@@ -97,11 +97,13 @@ for_window [app_id="conky"] opacity 0.6
 
 ### klaviatura
 
-input * {
-    xkb_layout "us,ru"
-    xkb_variant ",winkeys"
-    xkb_options "grp:alt_shift_toggle"
+input "type:keyboard" {
+  xkb_layout us,ru
+  xkb_options caps:none
 }
+
+bindcode 66 input "type:keyboard" xkb_switch_layout next
+
 
 
 ### qtfm
