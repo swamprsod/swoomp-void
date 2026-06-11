@@ -20,6 +20,7 @@ require("transparent").setup({
   exclude_groups={}, 
 })
 EOF
+
 set noshowmode
 let g:vimtex_view_method= 'zathura'
 
