@@ -12,7 +12,6 @@ set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#00050
 set $browser qutebrowser
 set $file_manager ranger
 
-exec sleep 3 && mpdscribble
 exec mpd
 bindsym $mod+Shift+m exec "alacritty -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
@@ -102,7 +101,7 @@ input "type:keyboard" {
   xkb_options caps:none
 }
 
-bindcode 66 input "type:keyboard" xkb_switch_layout next
+bindcode 66 input "type:keyboard" xkb_switch_layout next 
 
 
 
