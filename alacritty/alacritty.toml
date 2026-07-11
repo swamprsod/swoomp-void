@@ -2,7 +2,7 @@
 opacity = 0.90
 
 [colors.primary]
-background = '#101010'
+background = '#000000'
 foreground = '#ffffff'
 
 [colors.normal]

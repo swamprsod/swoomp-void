@@ -1,28 +1,34 @@
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term alacritty
-# Your preferred application launcher
+set $term urxvt
 set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff' --auto-select"
 set $browser qutebrowser
 set $file_manager ranger
-
+bindsym Mod4+Shift+Return exec ~/bin/alaex
 exec mpd
-bindsym $mod+Shift+m exec "alacritty -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+Shift+m exec "urxvt -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
+bindsym $mod+d exec warpd --normal
+bindsym $mod+s exec pkill -9 warpd
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+   events disabled
+}
+
+input "2:10:TPPS/2_IBM_TrackPoint" {
+    events disabled
+}
 
 
 bar {
 status_command ~/.config/sway/status.sh
-font "Terminus Bold" 11
+font "Terminus" 11
 status_edge_padding 0
 status_padding 0
 position top
@@ -31,11 +37,12 @@ tray_output none
 workspace_buttons no
 height 13
  colors {
- statusline #9aff9a
- background #00000055
+ statusline #ffffff
+ background #00000000
     }
 }
 
+primary_selection disable
 
 ### screnshots
 
@@ -46,15 +53,16 @@ bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
 
 ### layout
 bindsym $mod+t floating toggle
-exec alacritty
+exec urxvt
 
-gaps inner 10
-default_floating_border pixel 2
-smart_borders off
-default_border pixel 2
+gaps inner 2
+gaps outer 2
+default_floating_border pixel 1
+smart_borders on
+default_border pixel 1
 client.unfocused         #303030 #303030 #888888 #303030 #303030
 client.focused_inactive  #303030 #303030 #888888 #303030 #303030
-client.focused           #303003 #303030 #1d3e14 #1d3e14 #1d3e14
+client.focused           #303003 #303030 #aaaaaa #aaaaaa #aaaaaa
 
 
 
@@ -78,17 +86,12 @@ for_window [all] floating enable
 for_window [title="btope"] resize set 809 600
 for_window [app_id="btope"] resize set 809 600
 for_window [class="btope"] resize set 809 600
-
+for_window [title="urxvt"] resize set 809 600
 
 for_window [title="btope"] opacity set 1
 for_window [app_id="btope"] opacity set 1
 for_window [class="btope"] opacity set 1
 
-#for_window [class="discord"] opacity 1
-#for_window [title="Color Picker"] floating enable
-#for_window [title="Volume Control"] floating enable
-#for_window [class="qutebrowser"] titlebar_hide
-for_window [title="Alacritty"] resize set 806 564
 for_window [class="conky"] move position 300px 500px
 for_window [app_id="conky"] opacity 0.6
 ### clipbord
@@ -116,62 +119,28 @@ bindsym $mod+Alt+Shift+c exec gcolor3
 bindsym $mod+n border toggle
 # clipbord
 
-#bindsym Ctrl+Shift+c exec wl-copy
-#bindsym Ctrl+Shift+v exec wl-paste
-
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
     bindsym $mod+Return exec $term
 
-    # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
     bindsym $mod+x exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
 
-    # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'nigger' -B 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
-    # Switch to workspace
+    bindsym $mod+Shift+$left move left 50px
+    bindsym $mod+Shift+$down move down 50px
+    bindsym $mod+Shift+$up move up 50px
+    bindsym $mod+Shift+$right move right 50px
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
@@ -193,31 +162,14 @@ bindsym $mod+n border toggle
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 #
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # respectively.
-    #bindsym $mod+b splith
+    bindsym $mod+b splitv
 
-    # Switch the current container between different layout styles
-    #bindsym $mod+s layout stacking
-    #bindsym $mod+w layout tabbed
-    #bindsym $mod+e layout toggle split
+    bindsym $mod+e layout toggle split
 
-    # Make the current focus fullscreen
     bindsym $mod+f fullscreen
+    bindsym $mod+space focus mode_toggle
 
-    # Toggle the current focus between tiling and floating mode
-    #bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    #bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    #bindsym $mod+a focus parent
 #
 # Scratchpad
 
@@ -227,30 +179,15 @@ bindsym $mod+n border toggle
 # izmenit razmer
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-#
-# Utilities:
-#
-    # Special keys to adjust volume via PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
@@ -263,5 +200,5 @@ bindsym $mod+r mode "resize"
 
 ### boobwamaba
 
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
 

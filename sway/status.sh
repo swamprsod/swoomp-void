@@ -16,7 +16,9 @@ vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "%.0f", $2*100}')
 
 caps=$(cat /sys/class/leds/input18::capslock/brightness | sed s/0/'        '/ | sed s/1/'CAPSLOCK'/)
 
-echo "$worksp      $(~/bin/uptime_wbr)                                                       $(date +'%Y/%m/%d %H:%M:%S')                                         $caps    $lang     $bat    $(($(cat /sys/class/thermal/thermal_zone1/temp) / 1000 + 273)) K    $vol%"
+uptime=$(awk '{printf "%6.1f", $1/86400}' /proc/uptime)
+
+echo "$uptime     $worksp                                                              $(date +'%Y/%m/%d %H:%M:%S')                                       $caps    $lang     $bat    $(($(cat /sys/class/thermal/thermal_zone1/temp) / 1000 + 273)) K    $vol%"
 
 sleep 0.01
 done

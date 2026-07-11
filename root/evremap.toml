@@ -15,3 +15,15 @@ output = ["KEY_RIGHT"]
 [[remap]]
 input = ["KEY_LEFTALT", "KEY_K"]
 output = ["KEY_UP"]
+
+[[remap]]
+input = ["KEY_LEFTALT", "KEY_9"]
+output = ["BTN_LEFT"]
+
+[[remap]]
+input = ["KEY_LEFTALT", "KEY_0"]
+output = ["BTN_RIGHT"]
+
+# [[remap]]
+# input = ["KEY_LEFTALT", "KEY_V"]
+# output = ["KEY_LEFTSHIFT", "KEY_INSERT"]

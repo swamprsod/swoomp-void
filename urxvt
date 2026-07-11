@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/urxvt -depth 32 -bg rgba:0000/0000/0000/ffff -fg white +sb -fn "xft:Unifont:size=10.5" "$@"
