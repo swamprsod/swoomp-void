@@ -1,5 +1,6 @@
 [window]
-opacity = 0.90
+opacity = 128
+padding = {x = 10, y = 10}
 
 [colors.primary]
 background = '#000000'
@@ -7,19 +8,19 @@ foreground = '#ffffff'
 
 [colors.normal]
 black   = '#000000'
-red     = '#aa0000'
-green   = '#00aa00'
-yellow  = '#fff500'
+red     = '#ff0000'
+green   = '#00ee00'
+yellow  = '#ccff00'
 blue    = '#0000aa'
 magenta = '#aa00aa'
 cyan    = '#00aaaa'
-white   = '#aaaaaa'
+white   = '#e9e9e9'
 
 [colors.bright]
-black   = '#000000'
+black   = '#cccccc'
 red     = '#aa0000'
 green   = '#00aa00'
-yellow  = '#fff500'
+yellow  = '#fff511'
 blue    = '#0000aa'
 magenta = '#aa00aa'
 cyan    = '#00aaaa'

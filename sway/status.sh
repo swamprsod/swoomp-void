@@ -18,7 +18,7 @@ caps=$(cat /sys/class/leds/input18::capslock/brightness | sed s/0/'        '/ | 
 
 uptime=$(awk '{printf "%6.1f", $1/86400}' /proc/uptime)
 
-echo "$uptime     $worksp                                                              $(date +'%Y/%m/%d %H:%M:%S')                                       $caps    $lang     $bat    $(($(cat /sys/class/thermal/thermal_zone1/temp) / 1000 + 273)) K    $vol%"
+echo "$uptime     $worksp                                                                 $(date +'%Y/%m/%d %H:%M:%S')                                             $caps    $lang     $bat    $(($(cat /sys/class/thermal/thermal_zone1/temp) / 1000 + 273)) K    $vol%"
 
 sleep 0.01
 done

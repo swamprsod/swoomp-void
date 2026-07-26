@@ -3,27 +3,28 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term urxvt
+set $term alacritty
 set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff' --auto-select"
 set $browser qutebrowser
 set $file_manager ranger
 bindsym Mod4+Shift+Return exec ~/bin/alaex
 exec mpd
-bindsym $mod+Shift+m exec "urxvt -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+Shift+m exec "alacritty -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
+bindsym $mod+Shift+d exec warpd --hint
 bindsym $mod+d exec warpd --normal
 bindsym $mod+s exec pkill -9 warpd
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
-   events disabled
-}
+#input "2:7:SynPS/2_Synaptics_TouchPad" {
+#   events disabled
+#}
 
-input "2:10:TPPS/2_IBM_TrackPoint" {
-    events disabled
-}
+#input "2:10:TPPS/2_IBM_TrackPoint" {
+#    events disabled
+#}
 
 
 bar {
@@ -32,13 +33,12 @@ font "Terminus" 11
 status_edge_padding 0
 status_padding 0
 position top
-mode hide
 tray_output none
 workspace_buttons no
 height 13
  colors {
  statusline #ffffff
- background #00000000
+ background #000000
     }
 }
 
@@ -55,7 +55,7 @@ bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
 bindsym $mod+t floating toggle
 exec urxvt
 
-gaps inner 2
+gaps inner 0
 gaps outer 2
 default_floating_border pixel 1
 smart_borders on
@@ -189,6 +189,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked $mod+Shift+F9 exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
