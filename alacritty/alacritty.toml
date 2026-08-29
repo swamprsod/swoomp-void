@@ -1,30 +1,30 @@
 [window]
-opacity = 128
+opacity = 0.97
 padding = {x = 10, y = 10}
 
 [colors.primary]
+foreground = '#cccccc'
 background = '#000000'
-foreground = '#ffffff'
 
 [colors.normal]
 black   = '#000000'
 red     = '#ff0000'
 green   = '#00ee00'
 yellow  = '#ccff00'
-blue    = '#0000aa'
+blue    = '#53b377'
 magenta = '#aa00aa'
 cyan    = '#00aaaa'
-white   = '#e9e9e9'
+white   = '#c6c6c6'
 
 [colors.bright]
-black   = '#cccccc'
+black   = '#66aa51'
 red     = '#aa0000'
 green   = '#00aa00'
 yellow  = '#fff511'
-blue    = '#0000aa'
+blue    = '#8adac2'
 magenta = '#aa00aa'
 cyan    = '#00aaaa'
-white   = '#aaaaaa'
+white   = '#9d9d9d'
 
 [colors.selection]
 text       = 'CellForeground'
@@ -48,6 +48,5 @@ bindings = [
   { key = "C", mods = "Alt", action = "Copy" },
   { key = "V", mods = "Alt", action = "Paste" },
 ]
-
 [general]
 live_config_reload = true

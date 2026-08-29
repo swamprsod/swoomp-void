@@ -6,6 +6,7 @@ Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
 Plug 'bjarneo/pixel.nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'sphamba/smear-cursor.nvim'
 
 call plug#end()
 colorscheme pixel 
@@ -22,8 +23,13 @@ set ruler
 
 set ignorecase 
 
-nnoremap <ESC><ESC> :nohlsearch<CR>
+lua require('smear_cursor').setup({
+    \cursor_color = '#ffffff',
+\})
 
+
+nnoremap <ESC><ESC> :nohlsearch<CR>
+nnoremap <Leader>j 10j
 nmap <Leader><Leader>f <Plug>(easymotion-bd-w)
 
 lua <<EOF

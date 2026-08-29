@@ -17,7 +17,6 @@ bindsym $mod+slash exec "mpc toggle"
 bindsym $mod+Shift+d exec warpd --hint
 bindsym $mod+d exec warpd --normal
 bindsym $mod+s exec pkill -9 warpd
-
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
 #   events disabled
 #}
@@ -28,17 +27,18 @@ bindsym $mod+s exec pkill -9 warpd
 
 
 bar {
-status_command ~/.config/sway/status.sh
+status_command stdbuf -oL ~/.config/sway/status.sh
 font "Terminus" 11
 status_edge_padding 0
 status_padding 0
 position top
+mode hide
 tray_output none
 workspace_buttons no
 height 13
  colors {
  statusline #ffffff
- background #000000
+ background #000000aa
     }
 }
 
@@ -53,16 +53,15 @@ bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
 
 ### layout
 bindsym $mod+t floating toggle
-exec urxvt
 
 gaps inner 0
 gaps outer 2
 default_floating_border pixel 1
 smart_borders on
 default_border pixel 1
-client.unfocused         #303030 #303030 #888888 #303030 #303030
-client.focused_inactive  #303030 #303030 #888888 #303030 #303030
-client.focused           #303003 #303030 #aaaaaa #aaaaaa #aaaaaa
+client.unfocused         #303030 #303030 #888888 #464646 #464646
+client.focused_inactive  #303030 #303030 #888888 #464646 #464646
+client.focused           #303003 #303030 #7ad891 #7ad891 #7ad891
 
 
 
@@ -110,7 +109,7 @@ bindcode 66 input "type:keyboard" xkb_switch_layout next
 
 ### qtfm
 
-bindsym $mod+Shift+Tab exec "st -e ranger"
+bindsym $mod+Shift+Tab exec "alacritty -e ranger"
 for_window [title="ranger"] resize set 782 594
 #
 bindsym --to-code XF86Launch1 exec swaylock --config /home/rsod/.config/swaylock/
