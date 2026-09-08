@@ -3,7 +3,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
+set $term alacritty -e tmux
 set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff' --auto-select"
 set $browser qutebrowser
 set $file_manager ranger
