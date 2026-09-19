@@ -44,10 +44,10 @@ height 13
 
 primary_selection disable
 
-### screnshots
+### screnshots (add -c for cursor)
 
-bindsym Print exec grim -c /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
-bindsym --release Ctrl+Print exec grim -c -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
+bindsym Print exec grim /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
+bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
 
 bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
 

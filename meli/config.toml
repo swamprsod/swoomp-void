@@ -1,0 +1,16 @@
+[accounts."disroot"]
+root_mailbox = "INBOX"
+format = "imap"
+server_hostname = "disroot.org"
+server_username = "secret"
+server_password = "secret"
+server_port = 993
+use_tls = true
+use_starttls = false
+identity = "secret"
+display_name = "secret"
+
+send_mail = { hostname = "disroot.org", port = 465, auth = { type = "auto", username = "secret", password = { type = "raw", value = "secret" } }, security = { type = "TLS" } }
+
+[pgp]
+auto_verify_signatures = false

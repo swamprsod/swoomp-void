@@ -11,10 +11,6 @@
 
 (require 'nov)
 
-(unless (package-installed-p 'telega)
-(package-refresh-contents)
-(package-install 'telega))
-
 (load-theme 'manoj-dark t)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
@@ -48,7 +44,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
- '(package-selected-packages '(evil evil-collection nov telega)))
+ '(package-selected-packages '(evil evil-collection eww-lnum nov telega)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
