@@ -1,0 +1,19 @@
+color statusbar white trans
+color current lightgreen 
+color title lightgray
+color foreground lightgray
+color background white
+color headers lightgray
+color borders black
+color selection lightmagenta
+color fields.artist white
+color fields.title lightgray
+color fields.album white
+color topbar.fields.artist white
+color topbar.muteshort red
+color topbar.randomshort red
+color topbar.repeatshort red
+color topbar.progressbar lightmagenta
+color topbar.foreground white black
+
+set columns=artist title album length 
