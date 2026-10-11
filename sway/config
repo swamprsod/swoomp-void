@@ -4,12 +4,13 @@ set $down j
 set $up k
 set $right l
 set $term alacritty -e tmux
-set $menu "bemenu-run -p '         execute' -b --cw 2 --fn Terminus --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff' --auto-select"
+set $menu "bemenu-run -p '         execute' -b --cw 2 --fn unifont --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff'"
 set $browser qutebrowser
 set $file_manager ranger
 bindsym Mod4+Shift+Return exec ~/bin/alaex
 exec mpd
-bindsym $mod+Shift+m exec "alacritty -e ncmpcpp && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+Shift+Alt+slash exec "pkill mpd && swaymsg exec mpd && sleep 2 && mpc update && sleep 0.5 && mpc listall |mpc add"
+bindsym $mod+Shift+m exec "alacritty -e pms && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
@@ -28,7 +29,7 @@ bindsym $mod+s exec pkill -9 warpd
 
 bar {
 status_command stdbuf -oL ~/.config/sway/status.sh
-font "Terminus" 11
+font "unifont" 12
 status_edge_padding 0
 status_padding 0
 position top
@@ -46,7 +47,7 @@ primary_selection disable
 
 ### screnshots (add -c for cursor)
 
-bindsym Print exec grim /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
+bindsym Print exec grim -c /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
 bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
 
 bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
@@ -61,7 +62,7 @@ smart_borders on
 default_border pixel 1
 client.unfocused         #303030 #303030 #888888 #464646 #464646
 client.focused_inactive  #303030 #303030 #888888 #464646 #464646
-client.focused           #303003 #303030 #7ad891 #7ad891 #7ad891
+client.focused           #303003 #303030 #7ad891 #7ad891 #cccccc
 
 
 
@@ -76,7 +77,7 @@ for_window [all] opacity 1
 ### current song
 bindsym $mod+apostrophe exec /home/rsod/bin/crtr
 ###  idk
-exec pipewire 
+exec ~/bin/pipka
 
 bindsym $mod+Alt+P exec /home/rsod/bin/slurpos
 for_window [all] floating enable
@@ -120,7 +121,7 @@ bindsym $mod+n border toggle
 
     bindsym $mod+Return exec $term
 
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+Alt+Q kill
 
     bindsym $mod+x exec $menu
 
@@ -187,14 +188,15 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked $mod+Shift+F9 exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym --locked $mod+Shift+F9 exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume \@DEFAULT_SINK@ 5%-
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume \@DEFAULT_SINK@ 5%+
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 ### screenshots 
 

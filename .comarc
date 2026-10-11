@@ -1,0 +1,43 @@
+0h00:/bin/sh
+0p00:\001\033[37m\002;\001\033[0m\002 \001\033[35m\002coma\001\033[0m\002\001\033[37m\002<\001\033[0m\002 
+
+0c,0:&&
+0d?0:|grep -i 
+eg+0:|wl-copy
+0s^0:cat 
+0d!0:|sed s/
+0d{0:|head -n 
+0d}0:|tail -n
+Eg!!:|sh
+
+0d:0:echo "
+sgt1:echo "
+egT1:"
+0de0:%t1%T1
+
+Eg10:,cd /tmp/,pwd,echo test
+
+!shell<
+v() { nvim "$@"; }
+dela() { vim dia/main.txt "$@"; }
+fela() { vim dia/sci.txt "$@"; }
+alias cs="scheme --script"
+alias zapret1='doas /home/rsod/bin/zapret1'
+alias nslookup='busybox nslookup'
+alias ls='ls --color=auto'
+alias iwc='iwctl'
+alias sway='exec dbus-run-session sway'
+alias synccfg='cd ~/swoomp-void && git add -A && git commit -m "new!!" && git push'
+alias swayscale='swaymsg -t get_tree | jq ".. | select(.type? and .app_id?) | {app_id: .app_id, rect: .rect}"'
+alias please='doas'
+alias :q='clear'
+alias yi='doas apt install'
+alias yr='doas apt purge'
+alias yqrs='apt search '
+alias swaycfg='nvim ~/.config/sway/config'
+alias sudo='doas'
+alias alacrittycfg='nvim ~/.config/alacritty/alacritty.toml'
+alias gray='swaymsg exec "swaybg -c B1B1B1"'
+alias owo='echo "hi hii hello :3 uwu nya meow mmrrrow purr :3"'
+alias pomogite='echo "net"'
+!end shell

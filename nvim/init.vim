@@ -2,11 +2,11 @@ call plug#begin()
 
 Plug 'https://github.com/xiyaowong/transparent.nvim'
 Plug 'itchyny/lightline.vim'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'tag': 'v2.15' }
 Plug 'easymotion/vim-easymotion'
 Plug 'bjarneo/pixel.nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'sphamba/smear-cursor.nvim'
+Plug 'bakpakin/ats2.vim'
 
 call plug#end()
 colorscheme pixel 
@@ -17,14 +17,21 @@ syntax enable
 set number
 filetype on
 
+set winbar=%!lightline#statusline(0)
+highlight! link WinBar StatusLine
+set laststatus=0
+set noruler
+set statusline=
+
 set nocompatible
 set relativenumber
-set ruler
 
 set ignorecase 
-
-lua require('smear_cursor').setup({
-    \cursor_color = '#ffffff',
+hi cErrInParen guifg=NONE guibg=NONE gui=NONE
+hi cErrInBracket guifg=NONE guibg=NONE gui=NONE
+hi cError guifg=NONE guibg=NONE gui=NONE
+"lua require('smear_cursor').setup({
+\cursor_color='#0000ff',
 \})
 
 
@@ -34,11 +41,11 @@ nmap <Leader><Leader>f <Plug>(easymotion-bd-w)
 
 lua <<EOF
 require("transparent").setup({
-  extra_groups={ 
-    "NormalFloat", 
-    "NvimTreeNormal", 
-  },
-  exclude_groups={}, 
+extra_groups={ 
+"NormalFloat", 
+"NvimTreeNormal", 
+},
+exclude_groups={}, 
 })
 EOF
 set noshowmode
@@ -48,8 +55,9 @@ autocmd BufNewFile,BufRead *.asm,*.nasm set filetype=nasm
 
 
 let g:lightline={
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'simpleblack',
       \ }
+let g:vimtex_version_check=0
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -59,3 +67,5 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+
