@@ -10,7 +10,7 @@ set $file_manager ranger
 bindsym Mod4+Shift+Return exec ~/bin/alaex
 exec mpd
 bindsym $mod+Shift+Alt+slash exec "pkill mpd && swaymsg exec mpd && sleep 2 && mpc update && sleep 0.5 && mpc listall |mpc add"
-bindsym $mod+Shift+m exec "alacritty -e pms && swaymsg exec for_window [class=ncmpcpp] resize set 1004 686"
+bindsym $mod+Shift+m exec "alacritty -e pms && swaymsg exec for_window [class=PMS*] resize set 1004 686"
 bindsym $mod+period exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
@@ -18,6 +18,8 @@ bindsym $mod+slash exec "mpc toggle"
 bindsym $mod+Shift+d exec warpd --hint
 bindsym $mod+d exec warpd --normal
 bindsym $mod+s exec pkill -9 warpd
+bindsym $mod+Shift+Alt+F10 exec swaymsg output LVDS-1 enable
+
 #input "2:7:SynPS/2_Synaptics_TouchPad" {
 #   events disabled
 #}
@@ -36,11 +38,11 @@ position top
 mode hide
 tray_output none
 workspace_buttons no
-height 13
- colors {
- statusline #ffffff
- background #000000aa
-    }
+height 14
+	colors {
+	statusline #ff00ff
+	background #002900ee
+	}
 }
 
 primary_selection disable
@@ -62,7 +64,7 @@ smart_borders on
 default_border pixel 1
 client.unfocused         #303030 #303030 #888888 #464646 #464646
 client.focused_inactive  #303030 #303030 #888888 #464646 #464646
-client.focused           #303003 #303030 #7ad891 #7ad891 #cccccc
+client.focused           #303003 #303030 #7ad891 #7ad891 #aaaaaa
 
 
 

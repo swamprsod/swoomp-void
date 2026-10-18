@@ -7,6 +7,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bjarneo/pixel.nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bakpakin/ats2.vim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 colorscheme pixel 
@@ -52,6 +53,7 @@ set noshowmode
 let g:vimtex_view_method= 'zathura'
 
 autocmd BufNewFile,BufRead *.asm,*.nasm set filetype=nasm
+autocmd BufRead,BufNewFile *.dats,*.sats setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 
 let g:lightline={
@@ -68,4 +70,8 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
-
+lua << EOF
+require("ibl").setup({
+indent = { char = "" },
+})
+EOF

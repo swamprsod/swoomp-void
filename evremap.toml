@@ -1,0 +1,34 @@
+device_name = "AT Translated Set 2 keyboard"
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_H"]
+output = ["KEY_LEFT"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_J"]
+output = ["KEY_DOWN"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_L"]
+output = ["KEY_RIGHT"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_K"]
+output = ["KEY_UP"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_9"]
+output = ["BTN_LEFT"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_F1"]
+output = ["BTN_LEFT"]
+
+[[remap]]
+input = ["KEY_LEFTCTRL", "KEY_0"]
+output = ["BTN_RIGHT"]
+
+
+# [[remap]]
+# input = ["KEY_LEFTCTRL", "KEY_V"]
+# output = ["KEY_LEFTSHIFT", "KEY_INSERT"]
