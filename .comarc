@@ -14,11 +14,16 @@ Eg!!:|sh
 sgt1:echo "
 egT1:"
 0de0:%t1%T1
-0da0:mkrun 
+0da0:mkrun
 Sg#0:doas 
+Eg$0:,exit  
 
 !shell<
-mkrun() { patscc "$1" && ./a.out; }
+doas() { exec /usr/bin/doas "$@"; }
+
+idris2() { /home/rsod/.local/state/pack/install/89ba32eb5eb325909bacd0d5411076ac28d166bb/idris2/bin/idris2 "$@"; }
+mkrun() { patscc -DATS_MEMALLOC_LIBC "$1" && ./a.out; }
+
 export PATH=$HOME/.local/bin:$PATH
 export PATSHOME=$HOME/.local/lib/ats2-postiats-0.4.2
 v() { nvim "$@"; }
@@ -26,7 +31,8 @@ dela() { vim dia/main.txt "$@"; }
 fela() { vim dia/sci.txt "$@"; }
 alias cs="scheme --script"
 alias scon="swaymsg output LVDS-1 enable"
-alias 1uviserv='ssh amoeba@213.171.29.213'
+alias 1uviserv='ssh -oport=6001 amoeba@213.171.29.213'
+alias uviserv='ssh amoeba@5.129.250.8'
 alias zapret1='doas /home/rsod/bin/zapret1'
 alias nslookup='busybox nslookup'
 alias ls='ls --color=auto'
@@ -48,8 +54,11 @@ alias gray='swaymsg exec "swaybg -c B1B1B1"'
 alias owo='echo "hi hii hello :3 uwu nya meow mmrrrow purr :3"'
 alias pomogite='echo "net"'
 alias pizdec='echo soglasen'
-alias ats='patscc'
+alias ats='patscc -DATS_MEMALLOC_LIBC '
 alias pdf='zathura'
 alias color=colortest-python
+alias rconuvi='rcon --config ~/.config/rcon.yaml'
+alias meow="echo :3"
+alias c='eval "$(horse) && pwd"'
 !end shell
 

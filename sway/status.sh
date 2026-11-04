@@ -1,29 +1,36 @@
 #!/bin/env sh
 
-WF=/tmp/swaystatus_ws
 LF=/tmp/swaystatus_lang
+# WF=/tmp/swaystatus_ws
 
-upd_ws() {
-w=$(swaymsg -r -t get_workspaces 2>/dev/null|jq -r '.[] | select(.focused==true).num' 2>/dev/null)
-[ -n "$w" ] &&printf "%2d\n" "$w" > "$WF" ||printf "  \n" > "$WF"
-}
+fan_path=/sys/class/hwmon/hwmon*/fan1_input
+for f in $fan_path; do
+[ "$(cat "$(dirname "$f")/name" 2>/dev/null)" = thinkpad ] && fan_path="$f" &&break
+done
+
+# upd_ws() {
+# w=$(swaymsg -r -t get_workspaces 2>/dev/null|jq -r '.[] | select(.focused==true).num' 2>/dev/null)
+# [ -n "$w" ] &&printf "%2d\n" "$w" > "$WF" ||printf "  \n" > "$WF"
+#}
 upd_lang() {
 l=$(swaymsg -t get_inputs 2>/dev/null|jq -r '.[].xkb_active_layout_name | select(. != null)' 2>/dev/null|head -1|cut -c1-2|sed 's/En/  /'|sed 's/Ru/RU/')
 [ -n "$l" ] &&printf "%s\n" "$l" > "$LF" ||printf "  \n" > "$LF"
 }
 
-upd_ws; upd_lang
+# upd_ws; upd_lang
+upd_lang
 
-swaymsg -t subscribe -m '["workspace"]' 2>/dev/null|while read -r _; do upd_ws; done & SW1=$!
+# swaymsg -t subscribe -m '["workspace"]' 2>/dev/null|while read -r _; do upd_ws; done & SW1=$!
 swaymsg -t subscribe -m '["input"]' 2>/dev/null|while read -r _; do upd_lang; done & SW2=$!
-trap 'kill $SW1 $SW2 2>/dev/null' EXIT
+# trap 'kill $SW1 $SW2 2>/dev/null' EXIT
+trap 'kill $SW2 2>/dev/null' EXIT
 
 read_cpu() { read -r _ u n s i w q sq st rest < /proc/stat; echo $((u+n+s+i+w+q+sq+st)) $i; }
 set -- $(read_cpu); pt=$1; pi=$2
 
 loop=0; topproc="N/A"
 while true; do
-IFS= read -r worksp < "$WF" 2>/dev/null; [ -z "$worksp" ] &&worksp="  "
+# IFS= read -r worksp < "$WF" 2>/dev/null; [ -z "$worksp" ] &&worksp="  "
 IFS= read -r lang < "$LF" 2>/dev/null; [ -z "$lang" ] &&lang="  "
 
 set -- $(read_cpu)
@@ -55,8 +62,10 @@ topproc=$(ps -eo pcpu,comm --sort=-pcpu 2>/dev/null|awk 'NR==2{printf "%s %.0f %
 uptime=$(awk '{printf " %2.1f", $1/86400}' /proc/uptime 2>/dev/null ||echo "0.0")
 
 temp=$(($(cat /sys/class/thermal/thermal_zone1/temp 2>/dev/null ||echo 0)/1000+273))
+fan=$(cat "$fan_path" 2>/dev/null); [ -z "$fan" ] && fan="N/A"
 
-echo "$SHELL ╏ $topproc ╏$uptime ╏ $worksp ╏ $(date +'%Y/%m/%d %H:%M:%S') ╏ $lang ╏ $cpu ╏ $ram ╏ $bat ╏ ${temp} K ╏ ${vol} %"
+
+echo "$SHELL ╏ $topproc ╏$uptime ╏ $(date +'%Y/%m/%d %H:%M:%S') ╏ $lang ╏ $cpu ╏ $ram ╏ $bat ╏ ${temp} K ╏ ${fan} rpm ╏ ${vol} %"
 
 loop=$((loop+1))
 sleep 0.1

@@ -4,14 +4,17 @@ set $down j
 set $up k
 set $right l
 set $term alacritty -e tmux
-set $menu "bemenu-run -p '         execute' -b --cw 2 --fn unifont --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff'"
+set $menu "bemenu-run -p '         summon' -b --cw 2 --fn unifont --tb '#000500' --tf '#ffffff' --fb '#151515' --ff '#ffffff' --nb '#000000' --nf '#ffffff' --fbb '#ffffff' -B 1 --bdr '#000000' --ab '#090909' --af '#aaaaaa' --sf '#ffffff' --hb '#111111' --hf '#00ff00' --cf '#ff00ff'"
+set $term2 "bmterm.sh "
 set $browser qutebrowser
 set $file_manager ranger
 bindsym Mod4+Shift+Return exec ~/bin/alaex
+exec fnott
 exec mpd
 bindsym $mod+Shift+Alt+slash exec "pkill mpd && swaymsg exec mpd && sleep 2 && mpc update && sleep 0.5 && mpc listall |mpc add"
-bindsym $mod+Shift+m exec "alacritty -e pms && swaymsg exec for_window [class=PMS*] resize set 1004 686"
-bindsym $mod+period exec "mpc next"
+bindsym $mod+Shift+m exec "alacritty -e pms"  
+for_window [class=PMS*] resize set 1004 686
+bindcode $mod+60 exec "mpc next"
 bindsym $mod+comma exec "mpc prev"
 bindsym $mod+slash exec "mpc toggle"
 
@@ -30,29 +33,30 @@ bindsym $mod+Shift+Alt+F10 exec swaymsg output LVDS-1 enable
 
 
 bar {
-status_command stdbuf -oL ~/.config/sway/status.sh
-font "unifont" 12
-status_edge_padding 0
-status_padding 0
-position top
-mode hide
-tray_output none
-workspace_buttons no
-height 14
+	status_command stdbuf -oL ~/.config/sway/status.sh
+	font "unifont" 12
+	status_edge_padding 0
+	status_padding 0
+	position top
+	mode hide
+	workspace_buttons yes
+	tray_output none
+	height 15
+	modifier Alt
 	colors {
-	statusline #ff00ff
-	background #002900ee
-	}
-}
+		background #002900ee
+		statusline #ff00ff
 
-primary_selection disable
+		focused_workspace  #ff00ff #002900ee #ff00ff
+		inactive_workspace #006400 #002900ee #006400
+		}
+	}
 
 ### screnshots (add -c for cursor)
 
-bindsym Print exec grim -c /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
-bindsym --release Ctrl+Print exec grim -g "$(slurp)" /home/rsod/screenshots/s_$(date +'%d-%m-%Y_%H-%M-%S').png
-
-bindsym Alt+Print exec /home/rsod/bin/toggle_r-s.sh
+bindsym Print exec grim -c $HOME/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
+bindsym --release Ctrl+Print exec grim -g "$(slurp)" $HOME/screenshots/s_$(date +'%Y-%m-%d_%H-%M-%S').png
+bindsym --release Alt+Ctrl+Print exec 'grim -g "$(slurp)" - |wl-copy'
 
 ### layout
 bindsym $mod+t floating toggle
@@ -126,12 +130,13 @@ bindsym $mod+n border toggle
     bindsym $mod+Shift+Alt+Q kill
 
     bindsym $mod+x exec $menu
+    bindsym $mod+Shift+e exec $term2
 
     floating_modifier $mod normal
 
     bindsym $mod+Shift+c reload
 
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'nigger' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+Alt+F12 exec swaynag -t warning -m 'instant death' -B 'Yes, instant death' 'swaymsg exit'
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down

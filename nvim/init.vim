@@ -8,6 +8,7 @@ Plug 'bjarneo/pixel.nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bakpakin/ats2.vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'edwinb/idris2-vim'
 
 call plug#end()
 colorscheme pixel 
